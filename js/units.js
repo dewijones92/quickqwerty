@@ -35,7 +35,7 @@ var leftIndexFingerLetters = "rtfgvb";
 var rightIndexFingerLetters = "yuhjnm";
 
 var leftPinkiefingerLetters = "qaz"
-var rightPinkiefingerLetters = "qaz"
+var rightPinkiefingerLetters = "p;/"
 
 
 
@@ -48,12 +48,11 @@ const genWords = (letters) => {
 	return words;
 }
 
-const genAlternateWords = (first, second) => {
+const genAlternateWords = (lettersArray) => {
 	let words = "";
-	first += " ";
-	second += " ";
+	lettersArray = lettersArray.map(l => l += " ");
 	for (let i of Array(200).keys()) {
-		let letters = (i % 2) == 0 ? first : second;
+		let letters = lettersArray[i % lettersArray.length]
 		words += letters[Math.floor((Math.random() * 1000)  % (letters.length)) ]
 	}
 	return words;
@@ -94,7 +93,23 @@ var Units = {
             'subunits': {
                 // Unit 1 - Grip
                 'exercise':
-		    genAlternateWords(leftIndexFingerLetters , rightIndexFingerLetters),
+		    genAlternateWords([leftIndexFingerLetters , rightIndexFingerLetters]),
+            }
+        },
+        {
+            'title': 'both pinkies',
+            'subunits': {
+                // Unit 1 - Grip
+                'exercise':
+		    genWords(leftPinkiefingerLetters + rightPinkiefingerLetters)
+            }
+        },
+        {
+            'title': 'alternate pinkie finger test',
+            'subunits': {
+                // Unit 1 - Grip
+                'exercise':
+		    genAlternateWords([leftPinkiefingerLetters , rightPinkiefingerLetters]),
             }
         },
         {
