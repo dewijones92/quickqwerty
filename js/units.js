@@ -39,16 +39,7 @@ var rightPinkiefingerLetters = "p;/"
 
 
 
-const genWords = (letters) => {
-	let words = "";
-	letters += " ";
-	for (let i of Array(200).keys()) {
-		words += letters[Math.floor((Math.random() * 1000)  % (letters.length)) ]
-	}
-	return words;
-}
-
-const genAlternateWords = (lettersArray) => {
+const genWords = (lettersArray) => {
 	let words = "";
 	lettersArray = lettersArray.map(l => l += " ");
 	for (let i of Array(200).keys()) {
@@ -67,7 +58,7 @@ var Units = {
             'subunits': {
                 // Unit 1 - Grip
                 'exercise':
-		    genWords(leftIndexFingerLetters),
+		    genWords([leftIndexFingerLetters]),
             }
         },
         {
@@ -76,7 +67,7 @@ var Units = {
             'subunits': {
                 // Unit 1 - Grip
                 'exercise':
-		    genWords(rightIndexFingerLetters),
+		    genWords([rightIndexFingerLetters]),
             }
         },
         // Unit 1
@@ -85,7 +76,7 @@ var Units = {
             'subunits': {
                 // Unit 1 - Grip
                 'exercise':
-		    genWords(leftIndexFingerLetters + rightIndexFingerLetters),
+		    genWords([leftIndexFingerLetters + rightIndexFingerLetters]),
             }
         },
         {
@@ -93,7 +84,7 @@ var Units = {
             'subunits': {
                 // Unit 1 - Grip
                 'exercise':
-		    genAlternateWords([leftIndexFingerLetters , rightIndexFingerLetters]),
+		    genWords([leftIndexFingerLetters , rightIndexFingerLetters]),
             }
         },
         {
@@ -101,7 +92,7 @@ var Units = {
             'subunits': {
                 // Unit 1 - Grip
                 'exercise':
-		    genWords(leftPinkiefingerLetters + rightPinkiefingerLetters)
+		    genWords([leftPinkiefingerLetters + rightPinkiefingerLetters])
             }
         },
         {
@@ -109,7 +100,7 @@ var Units = {
             'subunits': {
                 // Unit 1 - Grip
                 'exercise':
-		    genAlternateWords([leftPinkiefingerLetters , rightPinkiefingerLetters]),
+		    genWords([leftPinkiefingerLetters , rightPinkiefingerLetters]),
             }
         },
         {
