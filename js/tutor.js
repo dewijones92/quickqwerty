@@ -335,7 +335,7 @@ var Tutor = function() {
 
         // Create new unit links
         for (var i = 0; i < Units.main.length; i++) {
-            var label = 'Unit ' + (i + 1)
+            var label =  (i + 1)  + " " + Units.main[i].title;
             var selected = (i + 1 == my.current.unitNo)
             var href = unitHref(i + 1)
 

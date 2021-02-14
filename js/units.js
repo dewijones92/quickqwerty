@@ -25,10 +25,78 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 'use strict'
 
+var seed = 1;
+function random() {
+    var x = Math.sin(seed++) * 10000;
+    return x - Math.floor(x);
+}
+
+var leftIndexFingerLetters = "rtfgvb";
+var rightIndexFingerLetters = "yuhjnm";
+
+var leftPinkiefingerLetters = "qaz"
+var rightPinkiefingerLetters = "qaz"
+
+
+
+const genWords = (letters) => {
+	let words = "";
+	letters += " ";
+	for (let i of Array(200).keys()) {
+		words += letters[Math.floor((Math.random() * 1000)  % (letters.length)) ]
+	}
+	return words;
+}
+
+const genAlternateWords = (first, second) => {
+	let words = "";
+	first += " ";
+	second += " ";
+	for (let i of Array(200).keys()) {
+		let letters = (i % 2) == 0 ? first : second;
+		words += letters[Math.floor((Math.random() * 1000)  % (letters.length)) ]
+	}
+	return words;
+}
+
+
 var Units = {
-    // 6-7 split (6 with left hand)
     'main': [
+        {
+            'title': 'left index finger test',
+
+            'subunits': {
+                // Unit 1 - Grip
+                'exercise':
+		    genWords(leftIndexFingerLetters),
+            }
+        },
+        {
+            'title': 'right index finger test',
+
+            'subunits': {
+                // Unit 1 - Grip
+                'exercise':
+		    genWords(rightIndexFingerLetters),
+            }
+        },
         // Unit 1
+        {
+            'title': 'both index finger test',
+            'subunits': {
+                // Unit 1 - Grip
+                'exercise':
+		    genWords(leftIndexFingerLetters + rightIndexFingerLetters),
+            }
+        },
+        {
+            'title': 'alternate index finger test',
+            'subunits': {
+                // Unit 1 - Grip
+                'exercise':
+		    genAlternateWords(leftIndexFingerLetters , rightIndexFingerLetters),
+            }
+        },
         {
             'title': 'asdf jkl;',
 
