@@ -37,6 +37,12 @@ var rightIndexFingerLetters = "yuhjnm";
 var leftPinkiefingerLetters = "qaz"
 var rightPinkiefingerLetters = "p;/"
 
+var leftThirdFingerLetters = "wsx"
+var rightThirdFingerLetters = "ol."
+
+var leftSecondFingerLetters = "edc"
+var rightSecondFingerLetters = "ik,"
+
 
 
 const genWords = (lettersArray) => {
